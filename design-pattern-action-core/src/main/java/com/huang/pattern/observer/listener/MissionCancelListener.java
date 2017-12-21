@@ -21,7 +21,7 @@ public class MissionCancelListener implements MissionListener<MissionCancelEvent
 
     @Override
     public void handleEvent(MissionCancelEvent event) {
-        logger.info("mission cancel event,missionId:{}", event.getMissionContext().getMissionId());
+        logger.info("mission cancel event,missionId:{},timestamp:{}", event.getMissionContext().getMissionId(), event.getTimestamp());
     }
 
     @PostConstruct

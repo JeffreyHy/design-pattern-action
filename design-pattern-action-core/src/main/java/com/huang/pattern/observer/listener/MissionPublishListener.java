@@ -21,7 +21,7 @@ public class MissionPublishListener implements MissionListener<MissionPublishEve
 
     @Override
     public void handleEvent(MissionPublishEvent event) {
-        logger.info("mission publish event,missionId:{}", event.getMissionContext().getMissionId());
+        logger.info("mission publish event,missionId:{},timestamp:{}", event.getMissionContext().getMissionId(), event.getTimestamp());
     }
 
     @PostConstruct

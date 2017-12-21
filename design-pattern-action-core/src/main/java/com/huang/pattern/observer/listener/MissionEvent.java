@@ -31,7 +31,7 @@ public abstract class MissionEvent extends EventObject {
      */
     public MissionEvent(MissionContext source, Byte eventType) {
         super(source);
-        Assert.notNull(eventType);
+        Assert.notNull(eventType, "eventType cannot null");
         this.eventType = eventType;
         this.timestamp = System.currentTimeMillis();
     }
