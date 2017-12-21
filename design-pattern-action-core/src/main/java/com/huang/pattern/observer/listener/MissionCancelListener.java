@@ -9,23 +9,23 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * Mission publish event listener
+ * Mission cancel event listener
  * <p>
- * Created by JeffreyHy on 2017/12/20.
+ * Created by JeffreyHy on 2017/12/21.
  */
 @Component
-public class MissionPublishListener implements MissionListener<MissionPublishEvent> {
+public class MissionCancelListener implements MissionListener<MissionCancelEvent> {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private MissionEventPublisher missionEventPublisher;
 
     @Override
-    public void handleEvent(MissionPublishEvent event) {
-        logger.info("mission publish event,missionId:{}", event.getMissionContext().getMissionId());
+    public void handleEvent(MissionCancelEvent event) {
+        logger.info("mission cancel event,missionId:{}", event.getMissionContext().getMissionId());
     }
 
     @PostConstruct
     public void init() {
-        missionEventPublisher.registerMissionListener(this, Sets.newHashSet(EventTypeEnum.RELEASE));
+        missionEventPublisher.registerMissionListener(this, Sets.newHashSet(EventTypeEnum.CANCEL));
     }
 }

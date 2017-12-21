@@ -37,11 +37,9 @@ public class GenericMissionEventPublisher implements MissionEventPublisher {
             Set<MissionListener> listeners = listenerMap.get(eventTypeEnum.getCode());
             if (listeners == null) {
                 listeners = Sets.newConcurrentHashSet();
-                listeners.add(listener);
                 listenerMap.putIfAbsent(eventTypeEnum.getCode(), listeners);
-            } else {
-                listeners.add(listener);
             }
+            listeners.add(listener);
         });
     }
 
